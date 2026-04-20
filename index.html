@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuichiro "Hiko" Hikosaka</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Lora:ital,wght@0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* 全体のベースはInter（リンク等）、Bio本文をLora（情緒的）に設定 */
+        body { font-family: 'Inter', sans-serif; background-color: #F9F9F7; color: #1A1A1A; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-bio { font-family: 'Lora', serif; letter-spacing: 0.02em; }
+        
+        .photo-frame {
+            filter: grayscale(100%);
+            transition: all 1.5s ease;
+        }
+        .photo-frame:hover { filter: grayscale(0%); transform: scale(1.02); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+
+
+
+<body class="overflow-x-hidden">
+    <section class="min-h-screen flex items-center justify-center p-6 md:p-24">
+        <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <p class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-4 reveal">Builder & Investor</p>
+                <h1 class="text-5xl md:text-8xl font-serif leading-tight mb-8 reveal">
+                    Yuichiro <br>
+                    <span class="italic text-gray-300">"Hiko"</span> <br>
+                    Hikosaka
+                </h1>
+                <div class="h-[1px] w-20 bg-black reveal"></div>
+            </div>
+            <div class="order-1 md:order-2 reveal">
+                <div class="relative shadow-2xl overflow-hidden">
+                    <img src="Hiko.jpg" alt="Hiko" class="photo-frame w-full h-auto object-cover aspect-[4/5]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="py-32 bg-white px-6">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-2xl md:text-3xl font-light leading-relaxed mb-12 reveal font-bio text-gray-800">
+                Yuichiro "Hiko" Hikosaka is a builder and investor specializing in <span class="text-black font-medium border-b border-gray-300 pb-1">deep-tech and dual-use technology</span>.
+            </p>
+            
+            <div class="space-y-8 text-gray-600 leading-loose text-lg reveal font-bio">
+                <p>He began his career at <strong class="text-black">Goldman Sachs</strong>, where he spent nine years as a trader on the fixed-income and derivatives desks. Transitioning into the startup ecosystem, he served as the founding COO for ventures in robotics and virtual reality.</p>
+                <p>In venture capital, Hiko was an investor at <strong class="text-black">Airbus Ventures</strong>, managing a portfolio across Asia and the U.S. that spanned quantum computing, AI, space, and robotics. He subsequently became a Partner at <strong class="text-black">Soma Capital</strong>, a firm that has backed over 40 unicorns and decacorns in the United States.</p>
+                <p>Currently, Hiko serves as the Head of Global Strategy and Investment at <strong class="text-black italic">Transcelestial</strong>, a world leader in laser communication technology. He holds a B.S. from Keio University and a Master of Economics from The University of Tokyo. </p>
+
+<p> Outside of work, Hiko enjoys playing jazz piano and photography. He is a proud father to two daughters and an Australian Labradoodle named Photon.  </p>
+            </div>
+
+            <div class="mt-24 pt-12 border-t border-gray-100 flex flex-wrap gap-8 text-xs tracking-widest uppercase reveal">
+                <a href="https://linktr.ee/yuichirohikosaka" class="hover:text-black transition-colors">Linktree</a>
+                <a href="https://www.linkedin.com/in/yuichiro-hikosaka-063994117/" class="hover:text-black transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/y.hikosaka/" class="hover:text-black transition-colors">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
